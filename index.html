@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Đăng ký học phần trực tuyến</title>
+
+    <!-- Liên kết file CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome để sử dụng icon -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Khung chính -->
+    <div class="container">
+
+        <!-- Phần tiêu đề -->
+        <div class="header">
+            <h1>
+                <i class="fa-solid fa-graduation-cap"></i>
+                ĐĂNG KÝ HỌC PHẦN TRỰC TUYẾN
+            </h1>
+
+            <p>Hệ thống đăng ký học phần dành cho sinh viên đại học</p>
+        </div>
+
+        <!-- Nội dung -->
+        <div class="content">
+
+            <!-- Tiêu đề form -->
+            <div class="form-title">
+                <h2>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Thông tin đăng ký
+                </h2>
+                <p>Vui lòng nhập đầy đủ thông tin bên dưới</p>
+            </div>
+
+            <!-- Form đăng ký -->
+            <form id="registrationForm"
+                  method="post"
+                  action="xử_lý_dangky.php">
+
+                <!-- Mã sinh viên -->
+                <div class="form-group">
+                    <label for="studentId">
+                        Mã sinh viên <span>*</span>
+                    </label>
+
+                    <input type="text"
+                           id="studentId"
+                           name="studentId"
+                           placeholder="Ví dụ: 221A123456"
+                           required>
+                </div>
+
+                <!-- Họ tên -->
+                <div class="form-group">
+                    <label for="fullName">
+                        Họ và tên sinh viên
+                    </label>
+
+                    <input type="text"
+                           id="fullName"
+                           name="fullName"
+                           placeholder="Nhập họ và tên">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">
+                        Email trường
+                    </label>
+
+                    <input type="text"
+                           id="email"
+                           name="email"
+                           placeholder="Ví dụ: nguyenvana@university.edu.vn">
+                </div>
+
+                <!-- Khoa chuyên ngành -->
+                <div class="form-group">
+                    <label for="major">
+                        Khoa chuyên ngành
+                    </label>
+
+                    <select id="major" name="major">
+
+                        <option value="">
+                            -- Chọn khoa chuyên ngành --
+                        </option>
+
+                        <optgroup label="Công nghệ thông tin">
+                            <option value="cntt">
+                                Công nghệ thông tin
+                            </option>
+
+                            <option value="ktpm">
+                                Kỹ thuật phần mềm
+                            </option>
+
+                            <option value="httt">
+                                Hệ thống thông tin
+                            </option>
+                        </optgroup>
+
+                        <optgroup label="Kinh tế & Quản lý">
+                            <option value="qtkd">
+                                Quản trị kinh doanh
+                            </option>
+
+                            <option value="kt">
+                                Kinh tế
+                            </option>
+
+                            <option value="tmdt">
+                                Thương mại điện tử
+                            </option>
+                        </optgroup>
+
+                    </select>
+                </div>
+
+                <!-- Hình thức học -->
+                <div class="form-group">
+
+                    <label>
+                        Hình thức học
+                    </label>
+
+                    <div class="radio-group">
+
+                        <label class="radio-item">
+                            <input type="radio"
+                                   name="studyType"
+                                   value="Chính quy"
+                                   checked>
+                            <span>Chính quy</span>
+                        </label>
+
+                        <label class="radio-item">
+                            <input type="radio"
+                                   name="studyType"
+                                   value="Liên thông">
+                            <span>Liên thông</span>
+                        </label>
+
+                        <label class="radio-item">
+                            <input type="radio"
+                                   name="studyType"
+                                   value="Vừa làm vừa học">
+                            <span>Vừa làm vừa học</span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- Học phần đăng ký thêm -->
+                <div class="form-group">
+
+                    <label>
+                        Các học phần đăng ký thêm
+                    </label>
+
+                    <div class="checkbox-group">
+
+                        <label class="checkbox-item">
+                            <input type="checkbox"
+                                   name="subjects[]"
+                                   value="Lập trình Web nâng cao">
+                            <span>Lập trình Web nâng cao</span>
+                        </label>
+
+                        <label class="checkbox-item">
+                            <input type="checkbox"
+                                   name="subjects[]"
+                                   value="Cấu trúc dữ liệu">
+                            <span>Cấu trúc dữ liệu</span>
+                        </label>
+
+                        <label class="checkbox-item">
+                            <input type="checkbox"
+                                   name="subjects[]"
+                                   value="AI căn bản">
+                            <span>AI căn bản</span>
+                        </label>
+
+                        <label class="checkbox-item">
+                            <input type="checkbox"
+                                   name="subjects[]"
+                                   value="An toàn thông tin">
+                            <span>An toàn thông tin</span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- Ghi chú -->
+                <div class="form-group">
+
+                    <label for="note">
+                        Ghi chú thêm
+                    </label>
+
+                    <textarea id="note"
+                              name="note"
+                              rows="5"
+                              placeholder="Nhập ghi chú nếu có..."></textarea>
+
+                </div>
+
+                <!-- Nút chức năng -->
+                <div class="button-group">
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Đăng Ký
+                    </button>
+
+                    <button type="reset" class="btn-reset">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Làm lại
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                <i class="fa-solid fa-circle-info"></i>
+                Hệ thống đăng ký học phần trực tuyến
+            </p>
+
+            <p>© 2026 - Sinh viên đại học</p>
+        </div>
+
+    </div>
+
+    <!-- Liên kết JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
